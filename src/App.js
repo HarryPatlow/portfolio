@@ -1,5 +1,6 @@
 import './App.css';
 import React from "react";
+import { useState } from 'react';
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
@@ -16,6 +17,7 @@ import {
   BuildingOffice2Icon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+
 
 const portfolio = [
   {
@@ -77,15 +79,16 @@ function classNames(...classes) {
 function App() {
   
   //JS CODE   
-  const activeMenu = "text-base font-medium text-gray-900 hover:text-gray-1000 border-b-4 border-indigo-700"
+  const activeMenu = "text-base font-medium text-gray-900 hover:text-gray-1000 border-b-4 border-indigo-700 hover:border-b-8 hover:border-indigo-900"
 
   const inactiveMenu = "text-base font-medium text-gray-500 hover:text-gray-900"
 
+  const [isShowing, setIsShowing] = useState(false)
   //TEMPLATE CODE
   return (
     <Popover className="relative bg-white">
       <div className="mx-auto max-w-7xl px-6 sm:px-16">
-        <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+        <div className="flex items-center justify-between border-b-2 border-gray-200 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <p href="#">
               <span className="sr-only">Workflow</span>
@@ -102,14 +105,14 @@ function App() {
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
-          <Popover.Group as="nav" className="hidden space-x-10 md:flex">
+          <Popover.Group as="nav" className="hidden space-x-10 md:flex" >
             <button className={activeMenu}>
                 Home
             </button>
             <button className={inactiveMenu}>
               About
             </button>
-            <Popover className="relative">
+            <Popover className="relative" onMouseEnter={() => setIsShowing(true)} onMouseLeave={() => setIsShowing(false)}>
               {({ open }) => (
                 <>
                   <Popover.Button
@@ -129,6 +132,9 @@ function App() {
                   </Popover.Button>
 
                   <Transition
+                    show={isShowing}
+                    onMouseEnter={() => setIsShowing(true)}
+                    onMouseLeave={() => setIsShowing(false)}
                     as={Fragment}
                     enter="transition ease-out duration-200"
                     enterFrom="opacity-0 translate-y-1"
