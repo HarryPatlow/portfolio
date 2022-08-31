@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from 'react';
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
+import Home from './components/Home';
 import {
   Bars3Icon,
   BookmarkSquareIcon,
@@ -83,9 +84,12 @@ function App() {
 
   const inactiveMenu = "text-base font-medium text-gray-500 hover:text-gray-900"
 
+  const [HomeActive,SetHomeActive] = useState(true)
+
   const [isShowing, setIsShowing] = useState(false)
   //TEMPLATE CODE
   return (
+    <>
     <Popover className="relative bg-white">
       <div className="mx-auto max-w-7xl px-6 sm:px-16">
         <div className="flex items-center justify-between border-b-2 border-gray-200 py-6 md:justify-start md:space-x-10">
@@ -221,8 +225,8 @@ function App() {
                 </nav>
               </div>
             </div>
-            <div className="space-y-6 py-6 px-5">
-              <div className="grid grid-cols-2 gap-y-4 gap-x-8">
+            <div className="space-y-6 py-12 px-5">
+              <div className="grid grid-cols-2 gap-y-6 gap-x-8">
                 <button href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
                   Certifications
                 </button>
@@ -251,6 +255,10 @@ function App() {
         </Popover.Panel>
       </Transition>
     </Popover>
+    <div className='px-2 md:px-8 py-10'>
+      <Home/>
+    </div>
+  </>
   )
 }
 
