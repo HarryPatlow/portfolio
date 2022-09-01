@@ -1,12 +1,16 @@
 import './App.css';
 import React from "react";
+import Home from "./components/Home"
 import { useState } from 'react';
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import Home from './components/Home';
 import {
   Bars3Icon,
+  BookmarkSquareIcon,
+  CalendarIcon,
   AcademicCapIcon,
+  LifebuoyIcon,
+  ShieldCheckIcon,
   CodeBracketIcon,
   XMarkIcon,
   PuzzlePieceIcon,
@@ -46,7 +50,27 @@ const portfolio = [
     icon: BuildingOffice2Icon,
   },
 ]
-
+const resources = [
+  {
+    name: 'Help Center',
+    description: 'Get all of your questions answered in our forums or contact support.',
+    href: '#',
+    icon: LifebuoyIcon,
+  },
+  {
+    name: 'Guides',
+    description: 'Learn how to maximize our platform to get the most out of it.',
+    href: '#',
+    icon: BookmarkSquareIcon,
+  },
+  {
+    name: 'Events',
+    description: 'See what meet-ups and other events we might be planning near you.',
+    href: '#',
+    icon: CalendarIcon,
+  },
+  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
+]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -64,7 +88,7 @@ function App() {
   //TEMPLATE CODE
   return (
     <>
-    <Popover className="relative bg-white">
+    <Popover className="relative bg-white z-50">
       <div className="mx-auto max-w-7xl px-6 sm:px-16">
         <div className="flex items-center justify-between border-b-2 border-gray-200 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -199,8 +223,8 @@ function App() {
                 </nav>
               </div>
             </div>
-            <div className="space-y-6 py-12 px-5">
-              <div className="grid grid-cols-2 gap-y-6 gap-x-8">
+            <div className="space-y-6 py-6 px-5">
+              <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 <button href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
                   Certifications
                 </button>
@@ -229,10 +253,8 @@ function App() {
         </Popover.Panel>
       </Transition>
     </Popover>
-    <div className='px-2 md:px-8 py-10'>
-      <Home/>
-    </div>
-  </>
+    <Home/>
+    </>
   )
 }
 
