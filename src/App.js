@@ -6,11 +6,7 @@ import { Popover, Transition } from '@headlessui/react'
 import Home from './components/Home';
 import {
   Bars3Icon,
-  BookmarkSquareIcon,
-  CalendarIcon,
   AcademicCapIcon,
-  LifebuoyIcon,
-  ShieldCheckIcon,
   CodeBracketIcon,
   XMarkIcon,
   PuzzlePieceIcon,
@@ -50,27 +46,7 @@ const portfolio = [
     icon: BuildingOffice2Icon,
   },
 ]
-const resources = [
-  {
-    name: 'Help Center',
-    description: 'Get all of your questions answered in our forums or contact support.',
-    href: '#',
-    icon: LifebuoyIcon,
-  },
-  {
-    name: 'Guides',
-    description: 'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
-    icon: BookmarkSquareIcon,
-  },
-  {
-    name: 'Events',
-    description: 'See what meet-ups and other events we might be planning near you.',
-    href: '#',
-    icon: CalendarIcon,
-  },
-  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
-]
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -83,8 +59,6 @@ function App() {
   const activeMenu = "text-base font-medium text-gray-900 hover:text-gray-1000 border-b-4 border-indigo-700 hover:border-b-8 hover:border-indigo-900"
 
   const inactiveMenu = "text-base font-medium text-gray-500 hover:text-gray-900"
-
-  const [HomeActive,SetHomeActive] = useState(true)
 
   const [isShowing, setIsShowing] = useState(false)
   //TEMPLATE CODE
