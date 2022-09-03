@@ -1,6 +1,6 @@
 import React from "react";
 import CountUp from 'react-countup';
-
+import VisibilitySensor from 'react-visibility-sensor';
 
 const Home = () => {
     const postivestyle = "float-right rounded-full font-semibold px-2 mt-3 bg-green-200 text-green-900"
@@ -60,7 +60,13 @@ const Home = () => {
               <div className="flex-1 shrink-0 bg-white px-5 py-4 rounded-l-xl">
                 <h3 className="text-l font-normal text-slate-700 mb-2">Projects</h3>
                 <div>
-                  <font className="text-3xl font-semibold text-indigo-700"><CountUp end={stats['Projects']['now']} duration={2.00}></CountUp></font>
+                  <font className="text-3xl font-semibold text-indigo-700"><CountUp end={stats['Projects']['now']} duration={2.00} redraw={true}>
+        {({ countUpRef, start }) => (
+            <VisibilitySensor onChange={start} delayedCall>
+                <span ref={countUpRef} />
+            </VisibilitySensor>
+        )}
+    </CountUp></font>
                   <font className="text-sm ml-2 mr-1 text-gray-600">from</font>
                   <font className="text-sm text-gray-600">{stats['Projects']['then']}</font>
                   <div className={stats['Projects']['now']< stats['Projects']['then'] ? negativestyle : postivestyle}>
@@ -72,7 +78,13 @@ const Home = () => {
               <div className="flex-1 shrink-0 bg-white px-5 py-4 border-2 border-t-0 border-b-0 border-gray-200">
               <h3 className="text-l font-normal text-slate-700 mb-2">Commits</h3>
               <div>
-                  <font className="text-3xl font-semibold text-indigo-700"><CountUp end={stats['Commits']['now']} duration={2.00}></CountUp></font>
+                  <font className="text-3xl font-semibold text-indigo-700"><CountUp end={stats['Commits']['now']} duration={2.00} redraw={true}>
+        {({ countUpRef, start }) => (
+            <VisibilitySensor onChange={start} delayedCall>
+                <span ref={countUpRef} />
+            </VisibilitySensor>
+        )}
+    </CountUp></font>
                   <font className="text-sm ml-2 mr-1 text-gray-600">from</font>
                   <font className="text-sm text-gray-600">{stats['Commits']['then']}</font>
                   <div className={stats['Commits']['now']< stats['Commits']['then'] ? negativestyle : postivestyle}>
@@ -84,7 +96,13 @@ const Home = () => {
               <div className="flex-1 shrink-0 bg-white px-5 py-4 rounded-r-xl">
               <h3 className="text-l font-normal text-slate-700 mb-2">Contributions</h3>
                 <div>
-                  <font className="text-3xl font-semibold text-indigo-700"><CountUp end={stats['Contributions']['now']} duration={2.00}></CountUp></font>
+                  <font className="text-3xl font-semibold text-indigo-700"><CountUp end={stats['Contributions']['now']} duration={2.00} redraw={true}>
+        {({ countUpRef, start }) => (
+            <VisibilitySensor onChange={start} delayedCall>
+                <span ref={countUpRef} />
+            </VisibilitySensor>
+        )}
+    </CountUp></font>
                   <font className="text-sm ml-2 mr-1 text-gray-600">from</font>
                   <font className="text-sm text-gray-600">{stats['Contributions']['then']}</font>
                   <div className={stats['Contributions']['now']< stats['Contributions']['then'] ? negativestyle : postivestyle}>
