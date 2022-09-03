@@ -91,14 +91,10 @@ function App() {
     <Popover className="relative bg-white z-50">
       <div className="mx-auto max-w-7xl px-6 sm:px-16">
         <div className="flex items-center justify-between border-b-2 border-gray-200 py-6 md:justify-start md:space-x-10">
-          <div className="flex justify-start lg:w-0 lg:flex-1">
+          <div className="flex justify-start lg:w-0 lg:flex-1 py-8">
             <p href="#">
               <span className="sr-only">Workflow</span>
-              <img
-                className="border-rounded-lg h-20 w-auto sm-16"
-                src="https://cdn.dribbble.com/users/2592071/screenshots/7327591/logo-artboard_2_4x_4x.png"
-                alt=""
-              />
+              
             </p>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
