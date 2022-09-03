@@ -1,4 +1,6 @@
 import React from "react";
+import CountUp from 'react-countup';
+
 
 const Home = () => {
     const postivestyle = "float-right rounded-full font-semibold px-2 mt-3 bg-green-200 text-green-900"
@@ -17,15 +19,8 @@ const Home = () => {
         'then':11,
       },
   }
-    let counts=setInterval(updated);
-        let upto=1000;
-        function updated(){
-            var count= document.getElementById("counter");
-            count.innerHTML=--upto;
-            if(upto === 0) {
-                clearInterval(counts);
-            }
-        }
+  
+    
     return(
         <>
         <div class="inline-block mb-56">
@@ -61,23 +56,23 @@ const Home = () => {
       </div>
       <div class="bg-gray-100 py-32 px-24">
           <h3 className="text-xl font-medium text-slate-800 mb-10">Last 12 Months</h3>
-          <div className="flex justify-around text-left shadow-sm shadow-slate-900 rounded-xl">
-              <div className="flex-auto bg-white px-5 py-4 rounded-l-xl">
+          <div className="flex justify-around text-left shadow-sm shadow-slate-900 rounded-xl  shrink-0">
+              <div className="flex-1 shrink-0 bg-white px-5 py-4 rounded-l-xl">
                 <h3 className="text-l font-normal text-slate-700 mb-2">Projects</h3>
                 <div>
-                  <font className="text-3xl font-semibold text-indigo-700">{stats['Projects']['now']}</font>
+                  <font className="text-3xl font-semibold text-indigo-700"><CountUp end={stats['Projects']['now']} duration={2.00}></CountUp></font>
                   <font className="text-sm ml-2 mr-1 text-gray-600">from</font>
                   <font className="text-sm text-gray-600">{stats['Projects']['then']}</font>
                   <div className={stats['Projects']['now']< stats['Projects']['then'] ? negativestyle : postivestyle}>
                   <font className={"text-sm"}>{stats['Projects']['now']< stats['Projects']['then'] ? '-' : '+'}</font>
-                      <font className={"text-sm"}> {parseInt(stats['Projects']['now']/stats['Projects']['then']*100)}%</font>
+                    <font className={"text-sm"}> {parseInt(stats['Projects']['now']/stats['Projects']['then']*100)}%</font>
                   </div>
                 </div>
               </div>
-              <div className="flex-auto bg-white px-5 py-4 border-2 border-t-0 border-b-0 border-gray-200">
+              <div className="flex-1 shrink-0 bg-white px-5 py-4 border-2 border-t-0 border-b-0 border-gray-200">
               <h3 className="text-l font-normal text-slate-700 mb-2">Commits</h3>
               <div>
-                  <font className="text-3xl font-semibold text-indigo-700">{stats['Commits']['now']}</font>
+                  <font className="text-3xl font-semibold text-indigo-700"><CountUp end={stats['Commits']['now']} duration={2.00}></CountUp></font>
                   <font className="text-sm ml-2 mr-1 text-gray-600">from</font>
                   <font className="text-sm text-gray-600">{stats['Commits']['then']}</font>
                   <div className={stats['Commits']['now']< stats['Commits']['then'] ? negativestyle : postivestyle}>
@@ -86,10 +81,10 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex-auto bg-white px-5 py-4 rounded-r-xl">
+              <div className="flex-1 shrink-0 bg-white px-5 py-4 rounded-r-xl">
               <h3 className="text-l font-normal text-slate-700 mb-2">Contributions</h3>
                 <div>
-                  <font className="text-3xl font-semibold text-indigo-700">{stats['Contributions']['now']}</font>
+                  <font className="text-3xl font-semibold text-indigo-700"><CountUp end={stats['Contributions']['now']} duration={2.00}></CountUp></font>
                   <font className="text-sm ml-2 mr-1 text-gray-600">from</font>
                   <font className="text-sm text-gray-600">{stats['Contributions']['then']}</font>
                   <div className={stats['Contributions']['now']< stats['Contributions']['then'] ? negativestyle : postivestyle}>
