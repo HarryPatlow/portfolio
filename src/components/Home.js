@@ -1,31 +1,40 @@
 import React from "react";
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
+import { useEffect, useState } from "react";
 
 const Home = () => {
     const postivestyle = "float-right rounded-full font-semibold px-2 mt-3 bg-green-200 text-green-900"
     const negativestyle = "float-right rounded-full font-semibold px-2 mt-3 bg-red-200 text-red-900"
+    const [data,setData] = useState({'public_repos':13})
+    useEffect(() => {
+      fetch(
+        `https://api.github.com/users/harrypatlow`
+      ).then(response => response.json())
+      .then(setData)
+    }, []);
+
     const stats={
       'Projects': {
-        'now':14,
+        'now':data.public_repos,
         'then':10,
       },
-      'Commits': {
-        'now':213,
-        'then':182,
+      'Articles': {
+        'now':45,
+        'then':24,
       },
-      'Contributions': {
-        'now':6,
-        'then':11,
+      'Clients': {
+        'now':3,
+        'then':1,
       },
   }
-  
-    
+
+
     return(
         <>
         <div class="inline-block mb-56">
         
-      <main class="mx-12 mt-12 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+      <main class="mx-12 mt-4 max-w-7xl px-4 sm:mt-4 sm:px-6 md:mt-6 lg:mt-16 lg:px-8 xl:mt-28">
       <div className="flex grid-cols-2 md:pt-12">
             <div class="sm:text-center lg:text-left mr-10">
                 <div className="font-bold tracking-tight text-gray-900 block text-5xl md:text-6xl">
@@ -49,7 +58,9 @@ const Home = () => {
               <button href="#" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:text-lg">View Portfolio</button>
             </div>
             <div class="mx-0 sm:mx-6 md:mx-6 lg:mx-6 xl:mx-6  mt-3 sm:mt-0 sm:ml-3">
-              <button href="#" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 py-3 md:mx-2 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 px-10 md:text-lg">View Info</button>
+              <button href="#" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 py-3 md:mx-2 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 px-10 md:text-lg">
+                View Info
+              </button>
             </div>
           </div>
       </main>
@@ -76,9 +87,9 @@ const Home = () => {
                 </div>
               </div>
               <div className="flex-1 shrink-0 bg-white px-5 py-4 border-2 border-t-0 border-b-0 border-gray-200">
-              <h3 className="text-l font-normal text-slate-700 mb-2">Commits</h3>
+              <h3 className="text-l font-normal text-slate-700 mb-2">Articles Published</h3>
               <div>
-                  <font className="text-3xl font-semibold text-indigo-700"><CountUp start={stats['Commits']['then']} end={stats['Commits']['now']} duration={3.00} redraw={true}>
+                  <font className="text-3xl font-semibold text-indigo-700"><CountUp start={stats['Articles']['then']} end={stats['Articles']['now']} duration={3.00} redraw={true}>
         {({ countUpRef, start }) => (
             <VisibilitySensor onChange={start} delayedCall>
                 <span ref={countUpRef} />
@@ -86,17 +97,17 @@ const Home = () => {
         )}
     </CountUp></font>
                   <font className="text-sm ml-2 mr-1 text-gray-600">from</font>
-                  <font className="text-sm text-gray-600">{stats['Commits']['then']}</font>
-                  <div className={stats['Commits']['now']< stats['Commits']['then'] ? negativestyle : postivestyle}>
-                  <font className={"text-sm"}>{stats['Commits']['now']< stats['Commits']['then'] ? '-' : '+'}</font>
-                      <font className={"text-sm"}> {parseInt(stats['Commits']['now']/stats['Commits']['then']*100)}%</font>
+                  <font className="text-sm text-gray-600">{stats['Articles']['then']}</font>
+                  <div className={stats['Articles']['now']< stats['Articles']['then'] ? negativestyle : postivestyle}>
+                  <font className={"text-sm"}>{stats['Articles']['now']< stats['Articles']['then'] ? '-' : '+'}</font>
+                      <font className={"text-sm"}> {parseInt(stats['Articles']['now']/stats['Articles']['then']*100)}%</font>
                   </div>
                 </div>
               </div>
               <div className="flex-1 shrink-0 bg-white px-5 py-4 rounded-r-xl">
-              <h3 className="text-l font-normal text-slate-700 mb-2">Contributions</h3>
+              <h3 className="text-l font-normal text-slate-700 mb-2">Clients</h3>
                 <div>
-                  <font className="text-3xl font-semibold text-indigo-700"><CountUp start={stats['Contributions']['then']} end={stats['Contributions']['now']} duration={3.00} redraw={true}>
+                  <font className="text-3xl font-semibold text-indigo-700"><CountUp start={stats['Clients']['then']} end={stats['Clients']['now']} duration={3.00} redraw={true}>
         {({ countUpRef, start }) => (
             <VisibilitySensor onChange={start} delayedCall>
                 <span ref={countUpRef} />
@@ -104,10 +115,10 @@ const Home = () => {
         )}
     </CountUp></font>
                   <font className="text-sm ml-2 mr-1 text-gray-600">from</font>
-                  <font className="text-sm text-gray-600">{stats['Contributions']['then']}</font>
-                  <div className={stats['Contributions']['now']< stats['Contributions']['then'] ? negativestyle : postivestyle}>
-                  <font className={"text-sm"}>{stats['Contributions']['now']< stats['Contributions']['then'] ? '-' : '+'}</font>
-                      <font className={"text-sm"}> {parseInt(stats['Contributions']['now']/stats['Contributions']['then']*100)}%</font>
+                  <font className="text-sm text-gray-600">{stats['Clients']['then']}</font>
+                  <div className={stats['Clients']['now']< stats['Clients']['then'] ? negativestyle : postivestyle}>
+                  <font className={"text-sm"}>{stats['Clients']['now']< stats['Clients']['then'] ? '-' : '+'}</font>
+                      <font className={"text-sm"}> {parseInt(stats['Clients']['now']/stats['Clients']['then']*100)}%</font>
                   </div>
                 </div>
               </div>
