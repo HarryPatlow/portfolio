@@ -7,7 +7,12 @@ import {
     UserIcon, 
     CheckBadgeIcon, 
     FaceSmileIcon,
-    PresentationChartBarIcon 
+    PresentationChartBarIcon, 
+    BoltIcon,
+    BeakerIcon,
+    CodeBracketIcon,
+    BookOpenIcon,
+    CalculatorIcon
 } from '@heroicons/react/24/outline'
 
 const Academic = () => {
@@ -154,6 +159,39 @@ const Academic = () => {
                     <div>
                     <PresentationChartBarIcon className="w-12 text-indigo-600"/>
                     </div>
+            </div>
+            
+        </div>
+        <div className="px-16 py-12">
+            <div className="flex gap-4 items-center w-full mb-4">
+                <BoltIcon className="w-8 text-indigo-600"/>
+                <div class="progress w-full" style={{height: "30px"}}>
+                    <div class="progress-bar bg-gray-600" role="progressbar" style={{width:"82%"}} aria-label="Basic example" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">Physics</div>
+                </div>
+            </div>
+            <div className="flex gap-4 items-center w-full mb-4">
+                <BeakerIcon  className="w-8 text-indigo-600"/>
+                <div class="progress w-full" style={{height: "30px"}}>
+                    <div class="progress-bar bg-gray-600" role="progressbar" style={{width:"78%"}} aria-label="Basic example" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">Chemistry</div>
+                </div>
+            </div>
+            <div className="flex gap-4 items-center w-full mb-4">
+                <CodeBracketIcon className="w-8 text-indigo-600"/>
+                <div class="progress w-full" style={{height: "30px"}}>
+                    <div class="progress-bar bg-gray-600" role="progressbar" style={{width:"97%"}}  aria-label="Basic example" aria-valuenow="97" aria-valuemin="0" aria-valuemax="100">Computer Science</div>
+                </div>
+            </div>
+            <div className="flex gap-4 items-center w-full mb-4">
+                <CalculatorIcon className="w-8 text-indigo-600"/>
+                <div class="progress w-full" style={{height: "30px"}}>
+                    <div class="progress-bar bg-gray-600" role="progressbar" style={{width:"92%"}}  aria-label="Basic example" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">Math</div>
+                </div>
+            </div>
+            <div className="flex gap-4 items-center w-full mb-4">
+                <BookOpenIcon  className="w-8 text-indigo-600"/>
+                <div class="progress w-full" style={{height: "30px"}}>
+                    <div class="progress-bar bg-gray-600" role="progressbar" style={{width:"90%"}} aria-label="Basic example" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">English</div>
+                </div>
             </div>
         </div>
         </>

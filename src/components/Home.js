@@ -32,6 +32,7 @@ const Home = () => {
 
     return(
         <>
+        
         <div class="inline-block mb-56">
         
       <main class="mx-12 mt-4 max-w-7xl px-4 sm:mt-4 sm:px-6 md:mt-6 lg:mt-16 lg:px-8 xl:mt-28">
@@ -124,6 +125,7 @@ const Home = () => {
               </div>
           </div>
       </div>
+
         </>
     )
 }
