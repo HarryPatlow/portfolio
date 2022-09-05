@@ -86,12 +86,12 @@ function App() {
         <div className="flex items-center justify-between border-b-2 border-gray-200 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1 py-8">
             <div className='grid grid-cols-3 gap-x-2'>
-              <div href="#">
+              <a href="https://github.com/HarryPatlow">
               <AiFillGithub onMouseOver={({target})=>target.style.color="#5A68D8"} onMouseOut={({target})=>target.style.color="black"} size="25px"/>
-              </div>
-              <div>
+              </a>
+              <a href="https://www.linkedin.com/in/gokul-k-7bb136210/">
               <AiFillLinkedin onMouseOver={({target})=>target.style.color="#5A68D8"} onMouseOut={({target})=>target.style.color="black"}  size="25px"/>
-              </div>
+              </a>
               <a href="https://geekalgo.com">
               <BiWorld onMouseOver={({target})=>target.style.color="#5A68D8"} onMouseOut={({target})=>target.style.color="black"}  size='25px'/>
               </a>
