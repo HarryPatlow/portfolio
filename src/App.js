@@ -5,8 +5,9 @@ import Academic from './components/pages/Academic';
 import { useState } from 'react';
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import {AiFillGithub, AiFillLinkedin} from 'react-icons/ai'
-import {BiWorld} from 'react-icons/bi'
+// import {AiFillGithub, AiFillLinkedin} from 'react-icons/ai'
+// import {BiWorld} from 'react-icons/bi'
+import CodingSkills from './components/pages/CodingSkills';
 import {
   Bars3Icon,
   AcademicCapIcon,
@@ -31,7 +32,7 @@ const portfolio = [
   {
     name: 'Coding Skills',
     description: 'Being a Web/App Developer means mastering a bunch of Abilities',
-    id: '#',
+    id: 'code',
     icon: CodeBracketIcon,
   },
   { name: 'Extra Curricular', 
@@ -72,13 +73,19 @@ function App() {
 
   const [homeActive, setHomeActive] = useState(true)
   const [AcadActive, setAcadActive] = useState(false)
+  const [CodeActive, setCodeActive] = useState(false)
 
   function pageToggle(id){
     if (id==='ac'){
       setHomeActive(false)
       setAcadActive(true)
-    }
-  }
+      setCodeActive(false);
+    } else if (id==='code'){
+      setHomeActive(false)
+      setAcadActive(false)
+      setCodeActive(true)
+    };
+  };
   //TEMPLATE CODE
   return (
     <>
@@ -86,7 +93,7 @@ function App() {
       <div className="mx-auto max-w-7xl px-6 sm:px-16">
         <div className="flex items-center justify-between border-b-2 border-gray-200 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1 py-8">
-            <div className='grid grid-cols-3 gap-x-2'>
+            {/* <div className='grid grid-cols-3 gap-x-2'>
               <a href="https://github.com/HarryPatlow">
               <AiFillGithub onMouseOver={({target})=>target.style.color="#5A68D8"} onMouseOut={({target})=>target.style.color="black"} size="25px"/>
               </a>
@@ -97,7 +104,8 @@ function App() {
               <BiWorld onMouseOver={({target})=>target.style.color="#5A68D8"} onMouseOut={({target})=>target.style.color="black"}  size='25px'/>
               </a>
   
-            </div>
+            </div> */}
+            
           </div>
           <div className="-my-2 -mr-2 md:hidden">
             <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -121,7 +129,7 @@ function App() {
                   <Popover.Button
                     className={classNames(
                       open ? 'text-gray-900' : 'text-gray-500',
-                      (AcadActive) ? activeMenu : inactiveMenu,
+                      (AcadActive || CodeActive) ? activeMenu : inactiveMenu,
                       'group inline-flex items-center bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                     )}
                   >
@@ -273,6 +281,7 @@ function App() {
     { homeActive && <Home/> }
     {/* </Transition> */}
     { AcadActive && <Academic/> }
+    { CodeActive && <CodingSkills/> }
     <Footer/>
     </>
   )
